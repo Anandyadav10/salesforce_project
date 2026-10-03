@@ -1,0 +1,14 @@
+<template>
+    <div class="head"><div><h1>Reports</h1><p>Operational reports from Salesforce data</p></div><button class="btn" onclick={print}>Print</button></div>
+    <div class="report-grid">
+        <template for:each={reports} for:item="r">
+            <button key={r.key} class="report" data-key={r.key} onclick={openReport}>
+                <lightning-icon icon-name="standard:report" size="small"></lightning-icon><div><strong>{r.label}</strong><span>{r.description}</span></div><lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+            </button>
+        </template>
+    </div>
+    <section class="panel">
+        <div class="section-head"><strong>{selectedLabel}</strong><span>Report preview</span></div>
+        <div class="report-preview"><div class="metric">Generated from Salesforce org data</div><div class="fake-table"><div>Use the Reports tab in Salesforce for advanced report filters, grouping, charts and export.</div></div></div>
+    </section>
+</template>
